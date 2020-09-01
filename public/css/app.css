@@ -9234,3 +9234,11 @@ input[type=range]::-ms-thumb {
   }
 }
 
+.btn-large {
+  margin-bottom: 30px;
+}
+
+#account a {
+  width: 100%;
+}
+

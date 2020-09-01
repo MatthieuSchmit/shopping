@@ -7,6 +7,11 @@ use App\Models\ { Order, Shop };
 
 class OrdersController extends Controller {
 
+    public function index(Request $request) {
+        $orders = $request->user()->orders()->with('state')->get();
+        return view('account.orders.index', compact('orders'));
+    }
+
     /**
      * Show order confirmation.
      *
@@ -39,6 +44,13 @@ class OrdersController extends Controller {
             // Là on s'occupera de Stripe
         }
         return $data;
+    }
+
+    public function show(Request $request, $id) {
+        $order = Order::with('products', 'state', 'addresses', 'addresses.country')->findOrFail($id);
+        $this->authorize('manage', $order);
+        $data = $this->data($request, $order);
+        return view('account.orders.show', $data);
     }
 
 }

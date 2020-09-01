@@ -28,7 +28,7 @@ class OrderController extends Controller
     public function create(Request $request, Shipping $ship) {
         $addresses = $request->user()->addresses()->get();
         if($addresses->isEmpty()) {
-            // Là il faudra renvoyer l'utilisateur sur son compte quand on l'aura créé
+            return redirect()->route('addresses.create')->with('message', 'Vous devez créer au moins une adresse pour passer une commande.');
         }
         $country_id = $addresses->first()->country_id;
         $shipping = $ship->compute($country_id);

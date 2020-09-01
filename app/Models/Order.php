@@ -11,7 +11,7 @@ class Order extends Model {
         'invoice_id', 'invoice_number'
     ];
 
-    public function adresses() {
+    public function addresses() {
         return $this->hasMany(OrderAddress::class);
     }
 

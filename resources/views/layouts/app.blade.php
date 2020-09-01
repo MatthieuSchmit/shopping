@@ -23,10 +23,6 @@
     <div class="nav-wrapper">
         <a href="{{ route('home') }}" class="brand-logo"><img src="{{ URL::asset('images/logo1.png') }}" width="210px" alt="Logo"></a>
         <a href="{{ route('home') }}" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-
-
-
         <ul class="right hide-on-med-and-down">
             @if($cartCount)
                 <li>
@@ -36,6 +32,7 @@
             @guest
                 <li><a href="{{ route('login') }}"><i class="material-icons left">perm_identity</i>Connexion</a></li>
             @else
+                <li><a class="tooltipped" href="{{ route('account') }}" data-position="bottom" data-tooltip="Voir mon compte client">{{ auth()->user()->first_name . ' ' . auth()->user()->name }}</a></li>
                 <li><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
@@ -71,7 +68,7 @@
                     <li class="grey-text text-lighten-3">Appelez-nous...</li>
                     <li class="grey-text text-lighten-3">Écrivez-nous...</li>
                     <br>
-                    <li><img src="/images/paiement.png" alt="Modes de paiement" width="250px"></li>
+                    <li><img src="{{ URL::asset('images/paiement.png') }}" alt="Modes de paiement" width="250px"></li>
                 </ul>
             </div>
             <div class="col l4 offset-l2 s12">
@@ -82,7 +79,7 @@
     <div class="footer-copyright">
         <div class="container">
             © 2020 Nom de la boutique
-            <a class="grey-text text-lighten-4 right" href="#" target="_blank"><img src="/images/facebook.png" alt="Facebook"></a>
+            <a class="grey-text text-lighten-4 right" href="#" target="_blank"><img src="{{ URL::asset('images/facebook.png') }}" alt="Facebook"></a>
         </div>
     </div>
 </footer>
