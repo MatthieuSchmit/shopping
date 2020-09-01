@@ -21,7 +21,7 @@
 </form>
 <nav>
     <div class="nav-wrapper">
-        <a href="{{ route('home') }}" class="brand-logo"><img src="{{ base_path('public/images') }}/logo1.png" width="210px" alt="Logo"></a>
+        <a href="{{ route('home') }}" class="brand-logo"><img src="{{ URL::asset('images/logo1.png') }}" width="210px" alt="Logo"></a>
         <a href="{{ route('home') }}" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 

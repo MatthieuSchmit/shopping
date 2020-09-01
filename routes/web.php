@@ -30,13 +30,18 @@ Route::resource('cart', 'CartController')->only(['index', 'store', 'update', 'de
 Route::middleware('auth')->group(function () {
 
     // Commandes
-    Route::prefix('order')->group(function () {
+    Route::prefix('orders')->group(function () {
         Route::resource('/', 'OrderController')->names([
             'create' => 'order.create',
             'store' => 'order.store',
         ])->only(['create', 'store']);
+
         Route::name('order.details')->post('details', 'DetailsController');
+
+        Route::name('order.confirm')->get('confirm/{order}', 'OrdersController@confirm');
     });
+
+
 
 
 });

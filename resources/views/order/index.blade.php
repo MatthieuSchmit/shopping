@@ -145,7 +145,7 @@
         const getDetails = async () => {
             document.querySelector('#wrapper').classList.add('hide');
             document.querySelector('#loader').classList.remove('hide');
-            const response = await fetch('#', {
+            const response = await fetch('{{ route("order.details") }}', {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -213,6 +213,7 @@
                 button.textContent = 'Confirmation de la commande en cours, ne fermez pas cette fenêtre...'
             });
             changePayment();
+            getDetails();
         });
     </script>
 @endsection

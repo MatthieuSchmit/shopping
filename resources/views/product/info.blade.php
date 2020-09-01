@@ -26,7 +26,7 @@
 
         <div class=row>
             <div class="col s12 m6">
-                <img style="width: 100%" src="/images/{{ $product->image }}">
+                <img style="width: 100%" src="{{ URL::asset('images') }}/{{ $product->image }}">
             </div>
             <div class="col s12 m6">
                 <h4>{{ $product->name }}</h4>

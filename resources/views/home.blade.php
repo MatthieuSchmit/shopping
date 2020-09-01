@@ -11,7 +11,7 @@
                             @if($product->quantity)
                                 <a href="{{ route('product.show', $product->id) }}">
                                     @endif
-                                    <img src="{{ base_path('public/images/thumbs') }}/{{ $product->image }}">
+                                    <img src="{{ URL::asset('images/thumbs') }}/{{ $product->image }}">
                                     @if($product->quantity) </a> @endif
                         </div>
                         <div class="card-content center-align">
