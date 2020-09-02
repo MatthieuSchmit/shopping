@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Cart;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\{ NewOrder, Ordered };
+use App\Mail\{ NewOrder, ProductAlert, Ordered };
+use App\Notifications\NewOrder as NewOrderNotification;
 
 class OrderController extends Controller
 {
@@ -99,7 +100,11 @@ class OrderController extends Controller
             $product->save();
             // Alerte stock
             if($product->quantity <= $product->quantity_alert) {
-                // Notifications à prévoir pour les administrateurs
+                $shop = Shop::firstOrFail();
+                $admins = User::whereAdmin(true)->get();
+                foreach($admins as $admin) {
+                    Mail::to($admin)->send(new ProductAlert($shop, $product));
+                }
             }
         }
         // On vide le panier
@@ -112,7 +117,7 @@ class OrderController extends Controller
         $admins = User::whereAdmin(true)->get();
         foreach($admins as $admin) {
             Mail::to($admin)->send(new NewOrder($shop, $order, $user));
-            // On ajoutera une notification ici
+            $admin->notify(new NewOrderNotification($order));
         }
 
         // Notification au client
