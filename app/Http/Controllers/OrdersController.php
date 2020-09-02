@@ -20,7 +20,7 @@ class OrdersController extends Controller {
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function confirm(Request $request, $id) {
-        $order = Order::with('products', 'adresses', 'state')->findOrFail($id);
+        $order = Order::with('products', 'addresses', 'state')->findOrFail($id);
         if(in_array($order->state->slug, ['cheque', 'mandat', 'virement', 'carte', 'erreur'])) {
 
             $this->authorize('manage', $order);

@@ -50,7 +50,10 @@ Route::middleware('auth')->group(function () {
         Route::name('order.confirm')->get('confirm/{order}', 'OrdersController@confirm');
     });
 
-
+    // Administration
+    Route::prefix('admin')->middleware('admin')->namespace('Admin')->group(function () {
+        Route::name('admin')->get('/', 'HomeController@home');
+    });
 
 
 });

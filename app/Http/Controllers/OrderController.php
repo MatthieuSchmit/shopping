@@ -79,11 +79,11 @@ class OrderController extends Controller
             'state_id' => State::whereSlug($request->payment)->first()->id,
         ]);
         // Enregistrement adresse de facturation
-        $order->adresses()->create($address_facturation->toArray());
+        $order->addresses()->create($address_facturation->toArray());
         // Enregistrement éventuel adresse de livraison
         if($request->different) {
             $address_livraison->facturation = false;
-            $order->adresses()->create($address_livraison->toArray());
+            $order->addresses()->create($address_livraison->toArray());
         }
         // Enregistrement des produits
         foreach($items as $row) {
