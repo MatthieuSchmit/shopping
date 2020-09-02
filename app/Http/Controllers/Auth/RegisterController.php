@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\{ User, Shop };
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Registered;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -36,8 +39,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('guest');
     }
 
@@ -47,8 +49,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data) {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
@@ -75,5 +76,15 @@ class RegisterController extends Controller
 
     protected function showRegistrationForm() {
         return view('auth.register');
+    }
+
+    protected function registered(Request $request, $user) {
+        $shop = Shop::firstOrFail();
+        Mail::to($user)->send(new Registered($shop));
+        $admins = User::whereAdmin(true)->get();
+        foreach($admins as $admin) {
+            // Là on prévoira de notifier les administrateurs
+        }
+        return redirect(route('addresses.create'))->with('message', config('messages.registered'));
     }
 }

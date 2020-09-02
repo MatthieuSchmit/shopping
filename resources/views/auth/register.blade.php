@@ -10,7 +10,7 @@
                             <span class="card-title">Créez votre compte</span>
                             <hr>
                             <x-input
-                                    name="firstname"
+                                    name="first_name"
                                     type="text"
                                     icon="person"
                                     label="Prénom"

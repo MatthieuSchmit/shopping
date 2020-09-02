@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ { Address, Country, State, Shop, Product, User };
+use App\Models\ { Address, Country, Shop, State, Product, User, Page };
 use App\Services\Shipping;
 use Illuminate\Http\Request;
 use Cart;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\{ NewOrder, Ordered };
 
 class OrderController extends Controller
 {
@@ -103,7 +105,21 @@ class OrderController extends Controller
         // On vide le panier
         Cart::clear();
         Cart::session($request->user())->clear();
-        // Notifications à prévoir pour les administrateurs et l'utilisateur
+
+
+        // Notification à l'administrateur
+        $shop = Shop::firstOrFail();
+        $admins = User::whereAdmin(true)->get();
+        foreach($admins as $admin) {
+            Mail::to($admin)->send(new NewOrder($shop, $order, $user));
+            // On ajoutera une notification ici
+        }
+
+        // Notification au client
+        $page = Page::whereSlug('conditions-generales-de-vente')->first();
+        Mail::to($request->user())->send(new Ordered($shop, $order, $page));
+
+
         return redirect(route('order.confirm', $order->id));
     }
 
