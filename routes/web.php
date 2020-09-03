@@ -54,10 +54,18 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin')->middleware('admin')->namespace('Admin')->group(function () {
         Route::name('admin')->get('/', 'HomeController@home');
         Route::name('read')->put('read/{type}', 'AdminController@read');
+
         Route::name('shop.edit')->get('shop', 'ShopController@edit');
         Route::name('shop.update')->put('shop', 'ShopController@update');
+
         Route::resource('countries', 'CountryController')->except('show')->parameters(['pays' => 'pays']);
         Route::name('countries.destroy.alert')->get('countries/{country}', 'CountryController@alert');
+
+        Route::name('range.edit')->get('ranges/edit', 'RangeController@edit');
+        Route::name('range.update')->put('ranges', 'RangeController@update');
+
+        Route::name('colissimos.edit')->get('colissimos/edit', 'ColissimoController@edit');
+        Route::name('colissimos.update')->put('colissimos', 'ColissimoController@update');
     });
 
 

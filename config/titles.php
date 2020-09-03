@@ -10,4 +10,10 @@ return [
         'edit' => 'Modification d\'un pays',
         'create' => 'Création d\'un pays',
     ],
+    'ranges' => [
+        'edit' => 'Gestion des plages de poids',
+    ],
+    'colissimos' => [
+        'edit' => 'Gestion des tarifs postaux',
+    ],
 ];

@@ -169,8 +169,8 @@ to get the desired effect
                     </x-menu-item>
 
 
-                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create') }}">
-                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create') }}">
+                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create', 'range.edit', 'colissimos.edit') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create', 'range.edit', 'colissimos.edit') }}">
                             <i class="nav-icon fas fa-cogs"></i>
                             <p>
                                 Administration
@@ -190,6 +190,25 @@ to get the desired effect
                                     :active="currentRouteActive('countries.index', 'countries.edit', 'countries.create')">
                                 Pays
                             </x-menu-item>
+
+                            <li class="nav-item has-treeview {{ menuOpen('range.edit', 'colissimos.edit') }}">
+                                <a href="#" class="nav-link {{ currentRouteActive('range.edit', 'colissimos.edit') }}">
+                                    <i class="nav-icon far fa-circle"></i>
+                                    <p>
+                                        Expéditions
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <x-menu-item :href="route('range.edit')" :sub=false :subsub=true :active="currentRouteActive('range.edit')">
+                                        Plages
+                                    </x-menu-item>
+                                    <x-menu-item :href="route('colissimos.edit')" :sub=false :subsub=true :active="currentRouteActive('colissimos.edit')">
+                                        Tarifs
+                                    </x-menu-item>
+                                </ul>
+                            </li>
+
                         </ul>
                     </li>
 
