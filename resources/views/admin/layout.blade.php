@@ -169,8 +169,8 @@ to get the desired effect
                     </x-menu-item>
 
 
-                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create', 'range.edit', 'colissimos.edit') }}">
-                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create', 'range.edit', 'colissimos.edit') }}">
+                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert') }}">
                             <i class="nav-icon fas fa-cogs"></i>
                             <p>
                                 Administration
@@ -183,6 +183,12 @@ to get the desired effect
                                     sub=true
                                     :active="currentRouteActive('shop.edit', 'shop.update')">
                                 Boutique
+                            </x-menu-item>
+                            <x-menu-item
+                                    :href="route('states.index')"
+                                    :sub=true
+                                    :active="currentRouteActive('states.index', 'states.edit', 'states.create', 'states.destroy.alert')">
+                                Etats de commande
                             </x-menu-item>
                             <x-menu-item
                                     :href="route('countries.index')"

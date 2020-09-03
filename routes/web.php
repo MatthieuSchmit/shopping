@@ -66,6 +66,9 @@ Route::middleware('auth')->group(function () {
 
         Route::name('colissimos.edit')->get('colissimos/edit', 'ColissimoController@edit');
         Route::name('colissimos.update')->put('colissimos', 'ColissimoController@update');
+
+        Route::resource('states', 'StateController')->except('show');
+        Route::name('states.destroy.alert')->get('states/{etat}', 'StateController@alert');
     });
 
 

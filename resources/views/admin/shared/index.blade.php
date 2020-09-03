@@ -12,6 +12,9 @@
                 @if(Route::currentRouteName() === 'countries.index')
                     <a class="btn btn-primary" href="{{ route('countries.create') }}" role="button">Créer un nouveau pays</a>
                 @endif
+                @if(Route::currentRouteName() === 'states.index')
+                    <a class="btn btn-primary" href="{{ route('states.create') }}" role="button">Créer un nouvel état</a>
+                @endif
             </div>
         </div>
     </div>
