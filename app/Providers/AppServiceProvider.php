@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider {
         });
 
         View::share('shop', Shop::firstOrFail());
+
+        View::share('pages', Page::all());
 
         View::composer('admin.layout', function ($view) {
             $title = config('titles.' . Route::currentRouteName());

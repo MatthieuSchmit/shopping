@@ -21,4 +21,9 @@ return [
         'edit' => 'Modification d\'un état',
         'create' => 'Création d\'un état',
     ],
+    'pages' => [
+        'index' => 'Gestion des pages',
+        'edit' => 'Modification d\'une page',
+        'create' => 'Création d\'une page',
+    ],
 ];

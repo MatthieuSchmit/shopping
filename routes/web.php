@@ -26,6 +26,8 @@ Route::name('product.show')->get('products/{product}', 'ProductController');
 
 Route::resource('cart', 'CartController')->only(['index', 'store', 'update', 'destroy']);
 
+Route::get('page/{page:slug}', 'HomeController@page')->name('page');
+
 // Utilisateur authentifié
 Route::middleware('auth')->group(function () {
 
@@ -69,6 +71,10 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('states', 'StateController')->except('show');
         Route::name('states.destroy.alert')->get('states/{etat}', 'StateController@alert');
+
+        Route::resource('pages', 'PageController')->except('show');
+        Route::name('pages.destroy.alert')->get('pages/{page}', 'PageController@alert');
+
     });
 
 

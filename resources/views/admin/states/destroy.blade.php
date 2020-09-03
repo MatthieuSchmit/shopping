@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <form id="deleteproduct" action="{{ route('etats.destroy', $state->id) }}" method="POST" style="display: none;">
+        <form id="deleteproduct" action="{{ route('states.destroy', $state->id) }}" method="POST" style="display: none;">
             @csrf
             @method('DELETE')
         </form>

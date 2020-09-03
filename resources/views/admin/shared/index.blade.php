@@ -11,9 +11,10 @@
                 {{ $dataTable->table(['class' => 'table table-bordered table-hover table-sm'], true) }}
                 @if(Route::currentRouteName() === 'countries.index')
                     <a class="btn btn-primary" href="{{ route('countries.create') }}" role="button">Créer un nouveau pays</a>
-                @endif
-                @if(Route::currentRouteName() === 'states.index')
+                @elseif(Route::currentRouteName() === 'states.index')
                     <a class="btn btn-primary" href="{{ route('states.create') }}" role="button">Créer un nouvel état</a>
+                @elseif(Route::currentRouteName() === 'pages.index')
+                    <a class="btn btn-primary" href="{{ route('pages.create') }}" role="button">Créer une nouvelle page</a>
                 @endif
             </div>
         </div>
