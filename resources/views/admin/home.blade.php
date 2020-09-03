@@ -20,7 +20,7 @@
                                 <i class="fas fa-shopping-bag"></i>
                             </div>
                             <a href="#" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
-                            <form action="#" method="POST">
+                            <form action="{{ route('read', 'orders') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-info btn-block text-warning">Purger</button>
@@ -39,7 +39,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <a href="#" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
-                            <form action="#" method="POST">
+                            <form action="{{ route('read', 'users') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <button type="submit" class="btn btn-success btn-block text-warning">Purger</button>

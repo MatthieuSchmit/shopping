@@ -12,10 +12,10 @@
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ URL::asset('css/adminlte.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.4/css/adminlte.min.css">
+    @yield('css')
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    @yield('css')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -160,74 +160,36 @@ to get the desired effect
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link">
-                            <i class="nav-icon fas fa-shopping-cart"></i>
+
+                    <x-menu-item
+                            :href="route('admin')"
+                            icon="tachometer-alt"
+                            :active="currentRouteActive('admin')">
+                        Tableau de bord
+                    </x-menu-item>
+
+
+                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index', 'countries.edit', 'countries.create') }}">
+                            <i class="nav-icon fas fa-cogs"></i>
                             <p>
-                                Return Shop
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin')}}" class="nav-link active">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Home
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Commandes
+                                Administration
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v3</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Articles
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Liste</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Ajouter</p>
-                                </a>
-                            </li>
+                            <x-menu-item
+                                    :href="route('shop.edit')"
+                                    sub=true
+                                    :active="currentRouteActive('shop.edit', 'shop.update')">
+                                Boutique
+                            </x-menu-item>
+                            <x-menu-item
+                                    :href="route('countries.index')"
+                                    :sub=true
+                                    :active="currentRouteActive('countries.index', 'countries.edit', 'countries.create')">
+                                Pays
+                            </x-menu-item>
                         </ul>
                     </li>
 
@@ -245,7 +207,7 @@ to get the desired effect
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">@yield('title')</h1>
+                        <h1 class="m-0 text-dark">{{$title}}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

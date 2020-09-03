@@ -21,4 +21,14 @@ class HomeController extends Controller {
         return view('admin.home', compact('notifications', 'newUsers', 'newOrders'));
     }
 
+    public function read(Request $request, $type) {
+        if($type === 'orders') {
+            $type = 'App\Notifications\NewOrder';
+        } else if($type === 'users') {
+            $type = 'App\Notifications\NewUser';
+        }
+        $request->user()->unreadNotifications->where('type', $type)->markAsRead();
+        return redirect(route('admin'));
+    }
+
 }

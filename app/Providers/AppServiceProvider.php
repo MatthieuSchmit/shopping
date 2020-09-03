@@ -3,12 +3,13 @@
 namespace App\Providers;
 
 use App\Models\Shop;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Cart;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
+
     /**
      * Register any application services.
      *
@@ -34,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::share('shop', Shop::firstOrFail());
+
+        View::composer('admin.layout', function ($view) {
+            $title = config('titles.' . Route::currentRouteName());
+            $view->with(compact('title'));
+        });
     }
 }
