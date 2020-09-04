@@ -9,6 +9,8 @@ class SelectTwo extends Component {
     public $name;
     public $label;
     public $route;
+    public $oldID;
+    public $oldText;
 
 
     /**
@@ -16,10 +18,12 @@ class SelectTwo extends Component {
      *
      * @return void
      */
-    public function __construct($name, $label, $route) {
+    public function __construct($name, $label, $route, $oldID = 0, $oldText = '') {
         $this->name = $name;
         $this->label = $label;
         $this->route = $route;
+        $this->oldID = $oldID;
+        $this->oldText = $oldText;
     }
 
     /**

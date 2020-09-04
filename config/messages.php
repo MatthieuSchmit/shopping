@@ -20,4 +20,7 @@ return [
     'categorycreated' => 'La catégorie a bien été créée.',
     'categoryupdated' => 'La catégorie a bien été modifiée.',
     'categorydeleted' => 'La catégorie a bien été supprimée.',
+    'productcreated' => 'Le produit a bien été créé.',
+    'productupdated' => 'Le produit a bien été modifié.',
+    'productdeleted' => 'Le produit a bien été supprimé.',
 ];

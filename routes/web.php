@@ -79,6 +79,8 @@ Route::middleware('auth')->group(function () {
         Route::resource('categories', 'CategoryController')->except('show');
         Route::name('categories.destroy.alert')->get('categories/{category}', 'CategoryController@alert');
 
+        Route::resource('products', 'ProductController')->except('show');
+        Route::name('products.destroy.alert')->get('products/{product}', 'ProductController@alert');
     });
 
 

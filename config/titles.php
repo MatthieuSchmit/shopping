@@ -33,5 +33,12 @@ return [
             'alert' => "Suppression d'une catégorie",
         ],
     ],
+    'products' => [
+        'index' => 'Catalogue',
+        'create' => "Création d'un produit",
+        'destroy' => [
+            'alert' => "Suppression d'un produit",
+        ],
+    ],
 
 ];

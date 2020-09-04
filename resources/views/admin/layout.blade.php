@@ -227,8 +227,8 @@ to get the desired effect
                     </li>
 
                     <!-- CATALOGUE -->
-                    <li class="nav-item has-treeview {{ menuOpen('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert') }}">
-                        <a href="#" class="nav-link {{ currentRouteActive('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert') }}">
+                    <li class="nav-item has-treeview {{ menuOpen('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert', 'products.create', 'products.index', 'products.edit' , 'products.destroy.alert') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert', 'products.create', 'products.index', 'products.edit' , 'products.destroy.alert') }}">
                             <i class="nav-icon fas fa-store"></i>
                             <p>
                                 Catalogue
@@ -238,6 +238,12 @@ to get the desired effect
                         <ul class="nav nav-treeview">
                             <x-menu-item :href="route('categories.index')" :sub=true :active="currentRouteActive('categories.index', 'categories.edit' , 'categories.destroy.alert', 'categories.create')">
                                 Catégories
+                            </x-menu-item>
+                            <x-menu-item :href="route('products.index')" :sub=true :active="currentRouteActive('products.index', 'products.edit' , 'products.destroy.alert')">
+                                Produits
+                            </x-menu-item>
+                            <x-menu-item :href="route('products.create')" :sub=true :active="currentRouteActive('products.create')">
+                                Nouveau produit
                             </x-menu-item>
                         </ul>
                     </li>

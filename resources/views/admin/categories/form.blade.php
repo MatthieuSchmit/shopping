@@ -35,6 +35,8 @@
                                         name="category_id"
                                         label="Parent"
                                         route="{{url('api/categories')}}"
+                                        oldID="{{isset($category) ? $category->category_id : 0}}"
+                                        oldText="{{isset($category) ? $category->category_id : ''}}"
                                 ></x-select-two>
 
                             <div class="form-group row mb-0">

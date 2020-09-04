@@ -9,7 +9,12 @@
                 id="{{$name}}"
                 name="{{$name}}"
                 class="{{ $errors->has($name) ? 'invalid' : '' }}">
-            <option>{{$label}}...</option>
+            @if($oldID == 0)
+                <option>{{$label}}...</option>
+            @else
+                <option value="{{$oldID}}">{{$oldText}}</option>
+            @endif
+
         </select>
         <span class="red-text">{{ $errors->has($name) ? $errors->first($name): '' }}</span>
     </div>
