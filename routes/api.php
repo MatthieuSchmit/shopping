@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// s2 - categories
+Route::get('categories', function (Request $request) {
+    return DB::table('categories')
+        ->select('name as text', 'id')
+        ->distinct()
+        ->where('name', 'like', '%' . $request->input('search') . '%')
+        ->get();
+});

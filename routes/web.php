@@ -23,6 +23,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::name('product.show')->get('products/{product}', 'ProductController');
+Route::name('categories.show')->get('categories/{category}', 'CategoryController');
 
 Route::resource('cart', 'CartController')->only(['index', 'store', 'update', 'destroy']);
 
@@ -74,6 +75,9 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('pages', 'PageController')->except('show');
         Route::name('pages.destroy.alert')->get('pages/{page}', 'PageController@alert');
+
+        Route::resource('categories', 'CategoryController')->except('show');
+        Route::name('categories.destroy.alert')->get('categories/{category}', 'CategoryController@alert');
 
     });
 

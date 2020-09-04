@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.4/css/adminlte.min.css">
-    @yield('css')
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @yield('css')
+    @stack('style')
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -168,7 +169,7 @@ to get the desired effect
                         Tableau de bord
                     </x-menu-item>
 
-
+                    <!-- ADMINISTRATION -->
                     <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert') }}">
                         <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert') }}">
                             <i class="nav-icon fas fa-cogs"></i>
@@ -222,6 +223,22 @@ to get the desired effect
                                 </ul>
                             </li>
 
+                        </ul>
+                    </li>
+
+                    <!-- CATALOGUE -->
+                    <li class="nav-item has-treeview {{ menuOpen('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('categories.index', 'categories.edit', 'categories.create' , 'categories.destroy.alert') }}">
+                            <i class="nav-icon fas fa-store"></i>
+                            <p>
+                                Catalogue
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <x-menu-item :href="route('categories.index')" :sub=true :active="currentRouteActive('categories.index', 'categories.edit' , 'categories.destroy.alert', 'categories.create')">
+                                Catégories
+                            </x-menu-item>
                         </ul>
                     </li>
 
@@ -293,6 +310,7 @@ to get the desired effect
 <script src="{{ URL::asset('js/adminlte.js') }}"></script>
 
 @yield('js')
+@stack('script')
 </body>
 </html>
 

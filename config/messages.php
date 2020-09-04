@@ -16,4 +16,8 @@ return [
     'statecreated' => 'L\'état a bien été créé.',
     'pageupdated' => 'La page a bien été mise à jour.',
     'pagecreated' => 'La page a bien été créée.',
+
+    'categorycreated' => 'La catégorie a bien été créée.',
+    'categoryupdated' => 'La catégorie a bien été modifiée.',
+    'categorydeleted' => 'La catégorie a bien été supprimée.',
 ];

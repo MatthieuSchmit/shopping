@@ -15,6 +15,8 @@
                     <a class="btn btn-primary" href="{{ route('states.create') }}" role="button">Créer un nouvel état</a>
                 @elseif(Route::currentRouteName() === 'pages.index')
                     <a class="btn btn-primary" href="{{ route('pages.create') }}" role="button">Créer une nouvelle page</a>
+                @elseif(Route::currentRouteName() === 'categories.index')
+                    <a class="btn btn-primary" href="{{ route('categories.create') }}" role="button">Créer une nouvelle catégorie</a>
                 @endif
             </div>
         </div>

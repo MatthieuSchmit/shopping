@@ -26,4 +26,12 @@ return [
         'edit' => 'Modification d\'une page',
         'create' => 'Création d\'une page',
     ],
+    'categories' => [
+        'index' => 'Catégories',
+        'create' => "Création d'une catégorie",
+        'destroy' => [
+            'alert' => "Suppression d'une catégorie",
+        ],
+    ],
+
 ];
