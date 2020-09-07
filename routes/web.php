@@ -81,6 +81,13 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('products', 'ProductController')->except('show');
         Route::name('products.destroy.alert')->get('products/{product}', 'ProductController@alert');
+
+        Route::resource('customers', 'UserController')->only(['index', 'show']);
+
+        Route::resource('addresses', 'AddressController')->names([
+            'index' => 'back.addresses.index',
+            'show' => 'back.addresses.show',
+        ])->only(['index', 'show']);
     });
 
 

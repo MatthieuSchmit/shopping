@@ -248,6 +248,25 @@ to get the desired effect
                         </ul>
                     </li>
 
+                    <!-- CLIENTS -->
+                    <li class="nav-item has-treeview {{ menuOpen('customers.index', 'customers.show', 'back.addresses.index', 'back.addresses.show')}}">
+                        <a href="#" class="nav-link {{ currentRouteActive('customers.index', 'customers.show', 'back.addresses.index', 'back.addresses.show')}}">
+                            <i class="nav-icon fas fa-user-alt"></i>
+                            <p>
+                                Clients
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <x-menu-item :href="route('customers.index')" :sub=true :active="currentRouteActive('customers.index', 'customers.show')">
+                                Clients
+                            </x-menu-item>
+                            <x-menu-item :href="route('back.addresses.index')" :sub=true :active="currentRouteActive('back.addresses.index', 'back.addresses.show')">
+                                Adresses
+                            </x-menu-item>
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

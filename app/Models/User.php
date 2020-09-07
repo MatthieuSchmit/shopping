@@ -28,6 +28,10 @@ class User extends Authenticatable {
         'password', 'remember_token',
     ];
 
+    protected $dates = [
+        'last_seen',
+    ];
+
 
     public function addresses() {
         return $this->hasMany(Address::class);

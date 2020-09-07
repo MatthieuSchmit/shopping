@@ -40,5 +40,15 @@ return [
             'alert' => "Suppression d'un produit",
         ],
     ],
+    'customers' => [
+        'index' => 'Clients',
+        'show' => 'Fiche client',
+    ],
+    'back' => [
+        'addresses' => [
+            'index' => 'Gestion des adresses',
+            'show' => 'Consultation d\'une adresse',
+        ],
+    ]
 
 ];
