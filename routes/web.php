@@ -88,6 +88,12 @@ Route::middleware('auth')->group(function () {
             'index' => 'back.addresses.index',
             'show' => 'back.addresses.show',
         ])->only(['index', 'show']);
+
+        Route::resource('orders', 'OrderController')->only(['index', 'show', 'update'])->names([
+            'index' => 'orders.index',
+            'show' => 'orders.show',
+            'update' => 'orders.update',
+        ]);
     });
 
 

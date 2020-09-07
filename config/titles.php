@@ -49,6 +49,10 @@ return [
             'index' => 'Gestion des adresses',
             'show' => 'Consultation d\'une adresse',
         ],
-    ]
+    ],
+    'orders' => [
+        'index' => 'Commandes',
+        'show' => 'Gestion d\'une commande',
+    ],
 
 ];

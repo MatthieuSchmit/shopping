@@ -267,6 +267,14 @@ to get the desired effect
                         </ul>
                     </li>
 
+                    <!-- ORDERS -->
+                    <x-menu-item
+                            :href="route('orders.index')"
+                            icon="shopping-basket"
+                            :active="currentRouteActive('orders.index', 'orders.show')">
+                        Commandes
+                    </x-menu-item>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
