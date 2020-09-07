@@ -54,5 +54,8 @@ return [
         'index' => 'Commandes',
         'show' => 'Gestion d\'une commande',
     ],
+    'maintenance' => [
+        'edit' => 'Maintenance',
+    ],
 
 ];

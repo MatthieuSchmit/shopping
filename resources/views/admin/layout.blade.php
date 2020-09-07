@@ -170,8 +170,8 @@ to get the desired effect
                     </x-menu-item>
 
                     <!-- ADMINISTRATION -->
-                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert') }}">
-                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert') }}">
+                    <li class="nav-item has-treeview {{ menuOpen('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert', 'maintenance.edit') }}">
+                        <a href="#" class="nav-link {{ currentRouteActive('shop.edit', 'shop.update', 'countries.index','countries.edit', 'countries.create', 'range.edit', 'colissimos.edit', 'states.index', 'states.edit', 'states.create', 'states.destroy.alert', 'pages.index', 'pages.edit', 'pages.create', 'pages.destroy.alert', 'maintenance.edit') }}">
                             <i class="nav-icon fas fa-cogs"></i>
                             <p>
                                 Administration
@@ -222,6 +222,10 @@ to get the desired effect
                                     </x-menu-item>
                                 </ul>
                             </li>
+
+                            <x-menu-item :href="route('maintenance.edit')" :sub=true :active="currentRouteActive('maintenance.edit')">
+                                Maintenance
+                            </x-menu-item>
 
                         </ul>
                     </li>

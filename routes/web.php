@@ -94,6 +94,11 @@ Route::middleware('auth')->group(function () {
             'show' => 'orders.show',
             'update' => 'orders.update',
         ]);
+
+        Route::name('maintenance.edit')->get('maintenance', 'MaintenanceController@edit');
+        Route::name('maintenance.update')->put('maintenance', 'MaintenanceController@update');
+        Route::name('cache.update')->put('cache', 'MaintenanceController@cache');
+
     });
 
 
