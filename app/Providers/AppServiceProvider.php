@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Page;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ class AppServiceProvider extends ServiceProvider {
             $view->with([
                 'cartCount' => Cart::getTotalQuantity(),
                 'cartTotal' => Cart::getTotal(),
+                'categories' => Category::where('category_id', 0)->get(),
             ]);
         });
 

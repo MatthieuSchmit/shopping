@@ -53,6 +53,7 @@ class ProductController extends Controller {
     protected function getInputs($request) {
         $inputs = $request->except(['image']);
         $inputs['active'] = $request->has('active');
+        $inputs['star'] = $request->has('star');
         if($request->image) {
             $inputs['image'] = $this->saveImages($request);
         }

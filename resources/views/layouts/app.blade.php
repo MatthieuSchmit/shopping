@@ -59,7 +59,35 @@
     @endguest
 </ul>
 <main>
-    @yield('content')
+
+    <div class="row">
+        <div class="col s2">
+            <div class="collection">
+                <a href="{{route('home')}}" class="collection-item">Home</a>
+                @foreach($categories as $category)
+                    <a href="{{route('categories.show', $category->id)}}" class="collection-item">{{$category->name}}</a>
+                    @if(count($category->children) != 0)
+                        <div class="collection-item">
+                            @foreach($category->children as $child)
+                                <a href="{{route('categories.show', $child->id)}}" class="collection-item">{{$child->name}}</a>
+                                @if(count($child->children) != 0)
+                                    <div class="collection-item">
+                                        @foreach($child->children as $child1)
+                                            <a href="{{route('categories.show', $child1->id)}}" class="collection-item">{{$child1->name}}</a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="col s10">
+            @yield('content')
+        </div>
+    </div>
+
 </main>
 <footer class="page-footer">
     <div class="container">

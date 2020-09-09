@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-
         <div class="row">
+            <h3>Produits en vedette</h3>
             <div class="col s12 cards-container">
                 @foreach($products as $product)
                     <div class="card">

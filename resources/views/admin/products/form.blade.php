@@ -101,6 +101,12 @@
                                     <label class="custom-control-label" for="active">Produit actif</label>
                                 </div>
                             </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="star" name="star" @if(old('star', isset($product) ? $product->star : false)) checked @endif>
+                                        <label class="custom-control-label" for="star">Produit star</label>
+                                    </div>
+                                </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-12">
                                     <a class="btn btn-primary" href="{{ route('products.index') }}" role="button"><i class="fas fa-arrow-left"></i> Retour à la liste des produits</a>

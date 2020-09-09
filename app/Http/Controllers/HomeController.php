@@ -23,7 +23,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
-        $products = Product::whereActive(true)->get();
+        $products = Product::whereActive(true)->whereStar(true)->get();
         return view('home', compact('products'));
     }
 

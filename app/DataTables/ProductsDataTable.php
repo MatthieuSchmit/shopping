@@ -32,7 +32,10 @@ class ProductsDataTable extends DataTable
             ->editColumn('active', function ($product) {
                 return $product->active ? '<i class="fas fa-check text-success"></i>' : '';
             })
-            ->rawColumns(['show', 'edit', 'destroy', 'active']);
+            ->editColumn('star', function ($product) {
+                return $product->star ? '<i class="fas fa-check text-success"></i>' : '';
+            })
+            ->rawColumns(['show', 'edit', 'destroy', 'active', 'star']);
     }
 
     /**
@@ -72,6 +75,10 @@ class ProductsDataTable extends DataTable
             Column::make('name')->title('Nom'),
             Column::make('price')->title('Prix TTC'),
             Column::make('quantity')->title('Quantité'),
+            Column::make('star')
+                ->title('Star')
+                ->width(60)
+                ->addClass('text-center'),
             Column::make('active')
                 ->title('Actif')
                 ->width(60)

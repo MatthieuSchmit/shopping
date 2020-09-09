@@ -4,11 +4,26 @@
 
     <div class="container">
         <div class=row>
-            <div class="col s12 m12">
-                <h3>{{$category->name}}</h3>
-                <h4>Produits</h4>
+            <h3>{{$category->name}}</h3>
+            <div class="col s12 cards-container">
                 @foreach($category->products as $product)
-                    {{$product->name}} <br>
+                    <div class="card">
+                        <div class="card-image">
+                            @if($product->quantity)
+                                <a href="{{ route('product.show', $product->id) }}">
+                                    @endif
+                                    <img src="{{ URL::asset('images/thumbs') }}/{{ $product->image }}">
+                                    @if($product->quantity) </a> @endif
+                        </div>
+                        <div class="card-content center-align">
+                            <p>{{ $product->name }}</p>
+                            @if($product->quantity)
+                                <p><strong>{{ number_format($product->price, 2, ',', ' ') }} € TTC</strong></p>
+                            @else
+                                <p class="red-text"><strong>Produit en rupture de stock</strong></p>
+                            @endif
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
