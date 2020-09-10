@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
     // Administration
     Route::prefix('admin')->middleware('admin')->namespace('Admin')->group(function () {
         Route::name('admin')->get('/', 'HomeController@home');
-        Route::name('read')->put('read/{type}', 'AdminController@read');
+        //Route::name('read')->put('read/{type}', 'AdminController@read');
 
         Route::name('shop.edit')->get('shop', 'ShopController@edit');
         Route::name('shop.update')->put('shop', 'ShopController@update');
