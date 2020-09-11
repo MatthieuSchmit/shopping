@@ -29,6 +29,20 @@ Route::resource('cart', 'CartController')->only(['index', 'store', 'update', 'de
 
 Route::get('page/{page:slug}', 'HomeController@page')->name('page');
 
+// API
+Route::prefix('api/v0')->namespace('Api')->group(function () {
+    Route::prefix('categories')->group(function () {
+        Route::name('api.categories')->get('/', 'CategoryController@index');
+        Route::name('api.category')->get('/{category}', 'CategoryController@show');
+    });
+    Route::prefix('products')->group(function () {
+        Route::name('api.products')->get('/', 'ProductController@index');
+    });
+    Route::prefix('users')->group(function () {
+        Route::name('api.login')->post('login', 'UserController@login');
+    });
+});
+
 // Utilisateur authentifié
 Route::middleware('auth')->group(function () {
 
@@ -100,6 +114,5 @@ Route::middleware('auth')->group(function () {
         Route::name('cache.update')->put('cache', 'MaintenanceController@cache');
 
     });
-
 
 });
